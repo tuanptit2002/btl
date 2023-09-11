@@ -12,6 +12,7 @@ public class ItemDTO {
     private Long id;
     private double price;
     private String name;
+    private String image;
     private CategoryDTO categoryDTO ;
     private List<BillDTO> billDTOS = new ArrayList<>();
 }

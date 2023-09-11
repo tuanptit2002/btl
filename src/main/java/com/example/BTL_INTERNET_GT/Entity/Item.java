@@ -1,5 +1,6 @@
 package com.example.BTL_INTERNET_GT.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -16,9 +17,11 @@ public class Item {
     private Long id;
     private double price;
     private String name;
+    private String image;
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category ;
-    @ManyToMany(mappedBy = "items")
-    private List<Bill> bill = new ArrayList<>();
+    @JsonIgnore
+    @OneToMany(mappedBy = "item")
+    private List<Bill> bills = new ArrayList<>();
 }

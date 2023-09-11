@@ -1,5 +1,6 @@
 package com.example.BTL_INTERNET_GT.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -14,6 +15,7 @@ public class Category {
     private Long id;
     private String describeItem;
     private Long totalItem;
+    @JsonIgnore
     @OneToMany(mappedBy = "category")
     private List<Item> items = new ArrayList<>();
 
